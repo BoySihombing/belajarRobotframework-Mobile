@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.2 (Python 3.9.7 on win32)" generated="20211229 09:34:34.133" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.2 (Python 3.9.7 on win32)" generated="20220103 02:32:08.152" rpa="false" schemaversion="2">
 <suite id="s1" name="Mobile" source="E:\Latihan QA\belajarRobotframework-Mobile\mobile.robot">
 <test id="s1-t1" name="As a user i want to open API Demos apps">
 <kw name="Start Session" type="SETUP">
-<kw name="Open Application">
+<kw name="Open Application" library="AppiumLibrary">
 <arg>http://localhost:4723/wd/hub</arg>
 <arg>automationName=UiAutomator2</arg>
 <arg>platformName=Android</arg>
@@ -12,48 +12,288 @@
 <arg>appActivity=io.appium.android.apis.ApiDemos</arg>
 <arg>autoGrantPermissions=true</arg>
 <arg>noReset=true</arg>
-<msg timestamp="20211229 09:34:34.268" level="FAIL">No keyword with name 'Open Application' found.</msg>
-<status status="FAIL" starttime="20211229 09:34:34.268" endtime="20211229 09:34:34.268"/>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<status status="PASS" starttime="20220103 02:32:08.754" endtime="20220103 02:32:30.180"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>1</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" starttime="20211229 09:34:34.286" endtime="20211229 09:34:34.286"/>
+<msg timestamp="20220103 02:32:31.190" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220103 02:32:30.181" endtime="20220103 02:32:31.190"/>
 </kw>
-<status status="FAIL" starttime="20211229 09:34:34.252" endtime="20211229 09:34:34.293"/>
+<status status="PASS" starttime="20220103 02:32:08.754" endtime="20220103 02:32:31.191"/>
+</kw>
+<kw name="Page Should Contain Text" library="AppiumLibrary">
+<arg>Accessibility</arg>
+<doc>Verifies that current page contains `text`.</doc>
+<msg timestamp="20220103 02:32:31.439" level="INFO">Current page contains text 'Accessibility'.</msg>
+<status status="PASS" starttime="20220103 02:32:31.194" endtime="20220103 02:32:31.439"/>
+</kw>
+<kw name="Tap" library="AppiumLibrary">
+<arg>${accessibility}</arg>
+<doc>Tap element identified by ``locator``. </doc>
+<status status="PASS" starttime="20220103 02:32:31.440" endtime="20220103 02:32:33.334"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220103 02:32:34.341" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220103 02:32:33.335" endtime="20220103 02:32:34.341"/>
+</kw>
+<kw name="Page Should Contain Text" library="AppiumLibrary">
+<arg>Accessibility Node Provider</arg>
+<doc>Verifies that current page contains `text`.</doc>
+<msg timestamp="20220103 02:32:34.523" level="INFO">Current page contains text 'Accessibility Node Provider'.</msg>
+<status status="PASS" starttime="20220103 02:32:34.346" endtime="20220103 02:32:34.523"/>
 </kw>
 <kw name="CLose Application" type="TEARDOWN">
-<msg timestamp="20211229 09:34:34.298" level="FAIL">No keyword with name 'CLose Application' found.</msg>
-<status status="FAIL" starttime="20211229 09:34:34.298" endtime="20211229 09:34:34.298">No keyword with name 'CLose Application' found.</status>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220103 02:32:35.787" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220103 02:32:34.526" endtime="20220103 02:32:35.787"/>
 </kw>
-<status status="FAIL" starttime="20211229 09:34:34.250" endtime="20211229 09:34:34.299">Setup failed:
-No keyword with name 'Open Application' found.
-
-Also teardown failed:
-No keyword with name 'CLose Application' found.</status>
+<kw name="Quit Application" library="AppiumLibrary">
+<doc>Quit application. Application can be quit while Appium session is kept alive.
+This keyword can be used to close application during test case or between test cases.</doc>
+<status status="PASS" starttime="20220103 02:32:35.787" endtime="20220103 02:32:36.120"/>
+</kw>
+<status status="PASS" starttime="20220103 02:32:34.525" endtime="20220103 02:32:36.121"/>
+</kw>
+<status status="PASS" starttime="20220103 02:32:08.752" endtime="20220103 02:32:36.124"/>
 </test>
-<status status="FAIL" starttime="20211229 09:34:34.138" endtime="20211229 09:34:34.303"/>
+<test id="s1-t2" name="As a user i want to validate inside the accessibility node provider should showing enable talkback Settings">
+<kw name="Start Session" type="SETUP">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>http://localhost:4723/wd/hub</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=emulator-5554</arg>
+<arg>appPackage=io.appium.android.apis</arg>
+<arg>appActivity=io.appium.android.apis.ApiDemos</arg>
+<arg>autoGrantPermissions=true</arg>
+<arg>noReset=true</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<status status="PASS" starttime="20220103 02:32:36.132" endtime="20220103 02:32:49.961"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220103 02:32:50.968" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220103 02:32:49.962" endtime="20220103 02:32:50.968"/>
+</kw>
+<status status="PASS" starttime="20220103 02:32:36.131" endtime="20220103 02:32:50.969"/>
+</kw>
+<kw name="Tap Accessibility">
+<kw name="Tap" library="AppiumLibrary">
+<arg>${accessibility}</arg>
+<doc>Tap element identified by ``locator``. </doc>
+<status status="PASS" starttime="20220103 02:32:50.975" endtime="20220103 02:32:52.979"/>
+</kw>
+<status status="PASS" starttime="20220103 02:32:50.973" endtime="20220103 02:32:52.981"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220103 02:32:54.000" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220103 02:32:52.985" endtime="20220103 02:32:54.000"/>
+</kw>
+<kw name="Tap Accessibility Node Provider">
+<kw name="Tap" library="AppiumLibrary">
+<arg>${accessibility_node_provider}</arg>
+<doc>Tap element identified by ``locator``. </doc>
+<status status="PASS" starttime="20220103 02:32:54.004" endtime="20220103 02:32:55.742"/>
+</kw>
+<status status="PASS" starttime="20220103 02:32:54.002" endtime="20220103 02:32:55.742"/>
+</kw>
+<kw name="Page Should Contain Text" library="AppiumLibrary">
+<arg>Enable TalkBack and Explore-by-touch from accessibility settings. Then touch the colored squares</arg>
+<doc>Verifies that current page contains `text`.</doc>
+<msg timestamp="20220103 02:32:55.842" level="INFO">Current page contains text 'Enable TalkBack and Explore-by-touch from accessibility settings. Then touch the colored squares'.</msg>
+<status status="PASS" starttime="20220103 02:32:55.745" endtime="20220103 02:32:55.843"/>
+</kw>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220103 02:32:56.754" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-2.png"&gt;&lt;img src="appium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220103 02:32:55.843" endtime="20220103 02:32:56.755"/>
+</kw>
+<kw name="CLose Application" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220103 02:32:57.534" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-3.png"&gt;&lt;img src="appium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220103 02:32:56.760" endtime="20220103 02:32:57.534"/>
+</kw>
+<kw name="Quit Application" library="AppiumLibrary">
+<doc>Quit application. Application can be quit while Appium session is kept alive.
+This keyword can be used to close application during test case or between test cases.</doc>
+<status status="PASS" starttime="20220103 02:32:57.535" endtime="20220103 02:32:57.907"/>
+</kw>
+<status status="PASS" starttime="20220103 02:32:56.758" endtime="20220103 02:32:57.907"/>
+</kw>
+<status status="PASS" starttime="20220103 02:32:36.129" endtime="20220103 02:32:57.911"/>
+</test>
+<test id="s1-t3" name="As a user i want to validate inside the accessibility node provider should showing Enable QueryBack">
+<kw name="Start Session" type="SETUP">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>http://localhost:4723/wd/hub</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=emulator-5554</arg>
+<arg>appPackage=io.appium.android.apis</arg>
+<arg>appActivity=io.appium.android.apis.ApiDemos</arg>
+<arg>autoGrantPermissions=true</arg>
+<arg>noReset=true</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<status status="PASS" starttime="20220103 02:32:57.919" endtime="20220103 02:33:11.777"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220103 02:33:12.786" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220103 02:33:11.777" endtime="20220103 02:33:12.787"/>
+</kw>
+<status status="PASS" starttime="20220103 02:32:57.917" endtime="20220103 02:33:12.789"/>
+</kw>
+<kw name="Tap Accessibility">
+<kw name="Tap" library="AppiumLibrary">
+<arg>${accessibility}</arg>
+<doc>Tap element identified by ``locator``. </doc>
+<status status="PASS" starttime="20220103 02:33:12.792" endtime="20220103 02:33:14.821"/>
+</kw>
+<status status="PASS" starttime="20220103 02:33:12.790" endtime="20220103 02:33:14.822"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220103 02:33:15.827" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220103 02:33:14.824" endtime="20220103 02:33:15.827"/>
+</kw>
+<kw name="Tap Accessibility Node Querying">
+<kw name="Tap" library="AppiumLibrary">
+<arg>${accessibility_node_querying}</arg>
+<doc>Tap element identified by ``locator``. </doc>
+<status status="PASS" starttime="20220103 02:33:15.830" endtime="20220103 02:33:17.616"/>
+</kw>
+<status status="PASS" starttime="20220103 02:33:15.829" endtime="20220103 02:33:17.617"/>
+</kw>
+<kw name="Page Should Contain Text" library="AppiumLibrary">
+<arg>Take out Trash</arg>
+<doc>Verifies that current page contains `text`.</doc>
+<msg timestamp="20220103 02:33:17.843" level="INFO">Current page contains text 'Take out Trash'.</msg>
+<status status="PASS" starttime="20220103 02:33:17.621" endtime="20220103 02:33:17.844"/>
+</kw>
+<kw name="CLose Application" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220103 02:33:18.650" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-4.png"&gt;&lt;img src="appium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220103 02:33:17.846" endtime="20220103 02:33:18.650"/>
+</kw>
+<kw name="Quit Application" library="AppiumLibrary">
+<doc>Quit application. Application can be quit while Appium session is kept alive.
+This keyword can be used to close application during test case or between test cases.</doc>
+<status status="PASS" starttime="20220103 02:33:18.650" endtime="20220103 02:33:19.147"/>
+</kw>
+<status status="PASS" starttime="20220103 02:33:17.846" endtime="20220103 02:33:19.148"/>
+</kw>
+<status status="PASS" starttime="20220103 02:32:57.915" endtime="20220103 02:33:19.151"/>
+</test>
+<test id="s1-t4" name="As a user i want to open Accessibility Service">
+<kw name="Start Session" type="SETUP">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>http://localhost:4723/wd/hub</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=emulator-5554</arg>
+<arg>appPackage=io.appium.android.apis</arg>
+<arg>appActivity=io.appium.android.apis.ApiDemos</arg>
+<arg>autoGrantPermissions=true</arg>
+<arg>noReset=true</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<status status="PASS" starttime="20220103 02:33:19.171" endtime="20220103 02:33:34.767"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220103 02:33:35.782" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220103 02:33:34.769" endtime="20220103 02:33:35.782"/>
+</kw>
+<status status="PASS" starttime="20220103 02:33:19.170" endtime="20220103 02:33:35.785"/>
+</kw>
+<kw name="Tap Accessibility">
+<kw name="Tap" library="AppiumLibrary">
+<arg>${accessibility}</arg>
+<doc>Tap element identified by ``locator``. </doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220103 02:33:38.256" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-5.png"&gt;&lt;img src="appium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220103 02:33:37.177" endtime="20220103 02:33:38.257"/>
+</kw>
+<msg timestamp="20220103 02:33:38.883" level="FAIL">InvalidElementStateException: Message: Tap at [x=540.0, y=402.0] has failed
+</msg>
+<status status="FAIL" starttime="20220103 02:33:35.791" endtime="20220103 02:33:38.883"/>
+</kw>
+<status status="FAIL" starttime="20220103 02:33:35.790" endtime="20220103 02:33:38.889"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20220103 02:33:38.895" endtime="20220103 02:33:38.897"/>
+</kw>
+<kw name="Tap Accessibility Service">
+<status status="NOT RUN" starttime="20220103 02:33:38.901" endtime="20220103 02:33:38.901"/>
+</kw>
+<kw name="Page Should Contain Text" library="AppiumLibrary">
+<arg>Enable TalkBack</arg>
+<doc>Verifies that current page contains `text`.</doc>
+<status status="NOT RUN" starttime="20220103 02:33:38.903" endtime="20220103 02:33:38.904"/>
+</kw>
+<kw name="CLose Application" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220103 02:33:39.948" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-6.png"&gt;&lt;img src="appium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220103 02:33:38.915" endtime="20220103 02:33:39.949"/>
+</kw>
+<kw name="Quit Application" library="AppiumLibrary">
+<doc>Quit application. Application can be quit while Appium session is kept alive.
+This keyword can be used to close application during test case or between test cases.</doc>
+<status status="PASS" starttime="20220103 02:33:39.949" endtime="20220103 02:33:40.158"/>
+</kw>
+<status status="PASS" starttime="20220103 02:33:38.912" endtime="20220103 02:33:40.158"/>
+</kw>
+<status status="FAIL" starttime="20220103 02:33:19.167" endtime="20220103 02:33:40.160">InvalidElementStateException: Message: Tap at [x=540.0, y=402.0] has failed
+</status>
+</test>
+<status status="FAIL" starttime="20220103 02:32:08.158" endtime="20220103 02:33:40.167"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="3" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Mobile">Mobile</stat>
+<stat pass="3" fail="1" skip="0" id="s1" name="Mobile">Mobile</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20211229 09:34:34.202" level="ERROR">Error in file 'E:\Latihan QA\belajarRobotframework-Mobile\mobile.robot' on line 2: Importing library 'AppiumLibrary' failed: ModuleNotFoundError: No module named 'AppiumLibrary'
-Traceback (most recent call last):
-  None
-PYTHONPATH:
-  C:\Users\Sihombing\AppData\Local\Programs\Python\Python39\Scripts\robot.exe
-  C:\Users\Sihombing\AppData\Local\Programs\Python\Python39\python39.zip
-  C:\Users\Sihombing\AppData\Local\Programs\Python\Python39\DLLs
-  C:\Users\Sihombing\AppData\Local\Programs\Python\Python39\lib
-  C:\Users\Sihombing\AppData\Local\Programs\Python\Python39
-  C:\Users\Sihombing\AppData\Local\Programs\Python\Python39\lib\site-packages</msg>
 </errors>
 </robot>
